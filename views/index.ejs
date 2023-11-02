@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <ul class="header_container">
+            <li class="header_item home">HOME</li>
+            <li class="header_item live">LIVE</li>
+            <li class="header_item about">About</li>
+            <button class="header_item login">LOGIN</button>
+            <button class="header_item signup">SIGNUP</button>
+        </ul>
+    </header>
+    <div id="main_content">
+        <div id="info">
+            <h1>Upload</h1>
+        </div>
+        <div class="form_upload">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="uploadPhoto" id="file_btn">
+                <button type="submit" value="upload">UPLOAD</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+    <script src="../index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</body>
+</html>

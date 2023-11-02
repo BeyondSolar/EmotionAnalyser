@@ -1,32 +1,44 @@
+const express = require('express');
+const path=require('path');
+const multer = require('multer');
+const tensor_predict = require('./ml_model/predict.js');
 
-class Counter {
-  constructor() {
-    this.count = 0;
+const app = express();
+
+// Serve static files from the "public" directory
+app.use(express.static('public/css'));
+
+//Server side rendering using ejs
+app.set("view engine","ejs");
+app.set('views',path.resolve("./views"));
+
+
+//Store the uploaded files to the local 'upload' directory
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+      cb(null, './upload');
+   },
+  filename: function (req, file, cb) {
+      cb(null , file.originalname);
   }
+});
+const upload=multer({storage:storage});
 
-  startCounting() {
-    // Using an arrow function to define a callback within the method
-    const callback = ()=> {
-      console.log(`Current count: ${this.count}`);
-    };
 
-    // Simulating an asynchronous operation (e.g., setInterval)
-    this.interval = setInterval(() => {
-      this.count++;
-      callback(); // Maintains the "this" context of the outer function
-    }, 1000);
-  }
+//http requests to handle get and post requests
+app.get('/',(req,res)=>{
+  return res.render('index');
+})
 
-  stopCounting() {
-    clearInterval(this.interval);
-    console.log("Counting stopped.");
-  }
-}
+app.post('/upload',upload.single("uploadPhoto"),(req,res)=>{
 
-const myCounter = new Counter();
-myCounter.startCounting();
+  console.log(req.file);
+  //tensor_predict.loadedModel.predict();
+  return res.redirect("/");
+})
 
-// After 5 seconds, stop counting
-setTimeout(() => {
-  myCounter.stopCounting();
-}, 5000);
+//exposing the server
+const port = 8000;
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});

@@ -1,0 +1,88 @@
+:root{
+    --header_height:5vh;
+}
+
+*{
+    font-family: "Satoshi";
+    /* font-optical-sizing: none;
+    font-family: 'Roboto', sans-serif; */
+    background-color: black;
+    color: white;
+    font-size:1rem;
+    font-weight:500;
+}
+
+body{
+    border: 1px solid white;
+    margin:0rem 15rem;
+    padding:0rem;
+}
+
+/* Header Styling */
+
+.header_container{
+    display:flex;
+    font-family: 'Roboto', sans-serif;
+    padding:0rem;
+    height:var(--header_height);
+    align-items: center;
+    border-bottom:1px solid white;
+    margin:1rem 1rem;
+}
+
+.header_item{
+    list-style-type: none;
+    /* border:2px solid white;
+    background-color: green; */
+    padding:0rem 0rem;
+    margin:0rem 1rem;
+}
+
+.home{
+    margin-right:auto;
+}
+
+.login{
+    padding:0rem;
+    margin:0rem 1rem;
+}
+.signup{
+    padding:0rem 1rem;
+    margin:0rem 1rem;
+}
+
+/* Main Content Styling */
+
+#main_content{
+    display:flex;
+    flex-direction:column;
+    margin:0rem 1rem;
+    border:1px solid red;
+    height:calc(90vh - var(--header_height));
+}
+
+#info h1{
+    font-size:3rem;
+    font-weight:1000;
+}
+
+/* #file_btn{
+    display: none;
+} */
+
+.custom_btn {
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Style the custom button as needed */
+.custom_btn:hover {
+    background-color: #45a049;
+}
+
+#submit_btn:hover{
+    cursor:pointer;
+}
+
