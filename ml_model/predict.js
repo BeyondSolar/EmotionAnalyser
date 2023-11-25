@@ -15,10 +15,10 @@ const loadedModel = tf.loadLayersModel(
 );
 
 // Make a sample prediction (you should replace this with your data)
-//const input = tf.tensor("C:/Users/abhis/OneDrive/Desktop/EmotionAnalyser/upload/WIN_20221214_19_28_27_Pro.jpg");
+const input = tf.tensor("C:/Users/abhis/OneDrive/Desktop/EmotionAnalyser/upload/WIN_20221214_19_28_27_Pro.jpg");
 const output = loadedModel.predict(input);
 
-console.log('Prediction:', output.dataSync());
+console.log('Prediction:', output);
 
 
 

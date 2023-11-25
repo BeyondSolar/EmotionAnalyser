@@ -33,7 +33,7 @@ app.get('/',(req,res)=>{
 app.post('/upload',upload.single("uploadPhoto"),(req,res)=>{
 
   console.log(req.file);
-  //tensor_predict.loadedModel.predict();
+  tensor_predict.loadedModel.predict();
   return res.redirect("/");
 })
 
